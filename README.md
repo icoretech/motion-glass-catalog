@@ -7,7 +7,7 @@ so new models, prices and deprecations reach existing installs without an app up
 ## Canonical URL
 
 ```
-https://raw.githubusercontent.com/icoretech/motion-glass-catalog/main/catalog.json
+https://motion.glass/catalog.json
 ```
 
 Schema `version` 1. Root fields: `schemaVersion`, `generatedAt` (ISO-8601 UTC), `sourceURL`,
