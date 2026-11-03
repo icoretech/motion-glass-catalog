@@ -1,0 +1,37 @@
+name: Validate catalog
+
+# Validates the published catalog on every pull request and push to main.
+# No secrets are needed: this job never touches the network.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-model-catalog-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate catalog
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out the catalog repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate catalog schema
+        run: python3 scripts/validate_catalog.py catalog.json
+
+      - name: Check catalog is a fixed point of the refresh writer
+        run: python3 scripts/refresh_catalog.py --check --offline --catalog catalog.json

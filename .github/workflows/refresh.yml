@@ -1,0 +1,97 @@
+name: Refresh model catalog
+
+# Scheduled + manual refresh of the public Motion Glass model catalog.
+#
+# - Runs daily at 06:17 UTC and on demand (workflow_dispatch).
+# - Reads provider model lists with repository secrets. Secret names:
+#     OPENAI_API_KEY, ANTHROPIC_API_KEY
+#   (values only ever live in repository settings; never in a file).
+# - Adds new chat models, merges public OpenAI pricing, applies the drift/grace
+#   policy, validates the result, and commits catalog.json only when its content
+#   changed (a generatedAt-only change is never committed).
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Compute the refresh but do not commit/push"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-model-catalog
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    name: Refresh catalog
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the catalog repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh catalog.json
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            python3 scripts/refresh_catalog.py --catalog catalog.json --dry-run
+          else
+            python3 scripts/refresh_catalog.py --catalog catalog.json
+          fi
+
+      - name: Validate catalog schema
+        run: python3 scripts/validate_catalog.py catalog.json
+
+      - name: Commit and push only when the content changed
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run == true) }}
+        run: |
+          set -euo pipefail
+          git config user.name "motion-glass-catalog-bot"
+          git config user.email "motion-glass-catalog-bot@users.noreply.github.com"
+          git add catalog.json
+          if git diff --cached --quiet; then
+            echo "catalog.json is already up to date; nothing to publish."
+            exit 0
+          fi
+
+          # Defensive guard against noise commits: if the only difference is the
+          # generatedAt timestamp, revert and stop. (The refresh script already
+          # keeps generatedAt stable when nothing else changes.)
+          if python3 - <<'PY'
+          import json
+          import subprocess
+          import sys
+
+          try:
+              head = json.loads(subprocess.check_output(["git", "show", "HEAD:catalog.json"], text=True))
+          except subprocess.CalledProcessError:
+              sys.exit(1)  # first publish: treat as a real change
+          with open("catalog.json", encoding="utf-8") as handle:
+              work = json.load(handle)
+          head.pop("generatedAt", None)
+          work.pop("generatedAt", None)
+          sys.exit(0 if head == work else 1)
+          PY
+          then
+            echo "Only generatedAt changed; reverting to avoid a noise commit."
+            git checkout -- catalog.json
+            exit 0
+          fi
+
+          MODEL_COUNT=$(python3 -c 'import json; d=json.load(open("catalog.json", encoding="utf-8")); print(sum(len(p["models"]) for p in d["providers"]))')
+          git commit -m "chore(catalog): refresh model catalog (${MODEL_COUNT} models)"
+          git push
