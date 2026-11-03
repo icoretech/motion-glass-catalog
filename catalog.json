@@ -1,0 +1,360 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-03T12:58:56Z",
+  "sourceURL": "https://raw.githubusercontent.com/icoretech/motion-glass-catalog/main/catalog.json",
+  "providers": [
+    {
+      "provider": "anthropic",
+      "displayName": "Anthropic",
+      "apiBaseURL": "https://api.anthropic.com",
+      "docsURL": "https://docs.anthropic.com",
+      "models": [
+        {
+          "provider": "anthropic",
+          "id": "claude-haiku-5-5",
+          "displayName": "Claude Haiku 5.5",
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 0.1,
+            "outputPerMTok": 0.5,
+            "cacheReadPerMTok": 0.01,
+            "cacheWritePerMTok": 0.125,
+            "longContext": {
+              "inputTokensAbove": 100000,
+              "inputPerMTok": 0.5,
+              "outputPerMTok": 2.5,
+              "cacheReadPerMTok": 0.05,
+              "cacheWritePerMTok": 0.625
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": true,
+          "details": "Fast and very cheap \u2014 the default for drafts and tests.",
+          "releasedAt": "2026-10-07T00:00:00Z"
+        },
+        {
+          "provider": "anthropic",
+          "id": "claude-sonnet-5-5",
+          "displayName": "Claude Sonnet 5.5",
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 2.0,
+            "outputPerMTok": 10.0,
+            "cacheReadPerMTok": 0.1,
+            "cacheWritePerMTok": 2.5
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Balanced quality and price \u2014 the best everyday Director.",
+          "releasedAt": "2026-09-28T00:00:00Z"
+        },
+        {
+          "provider": "anthropic",
+          "id": "claude-opus-5-5",
+          "displayName": "Claude Opus 5.5",
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 4.0,
+            "outputPerMTok": 20.0,
+            "cacheReadPerMTok": 0.2,
+            "cacheWritePerMTok": 5.0
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Maximum creative depth for hero videos.",
+          "releasedAt": "2026-09-28T00:00:00Z"
+        },
+        {
+          "provider": "anthropic",
+          "id": "claude-fable-5-1",
+          "displayName": "Claude Fable 5.1",
+          "contextWindow": 1000000,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 10.0,
+            "outputPerMTok": 50.0,
+            "cacheReadPerMTok": 0.25,
+            "cacheWritePerMTok": 12.5
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Premium creative model. Expensive per generation.",
+          "releasedAt": "2026-10-21T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "provider": "openai",
+      "displayName": "OpenAI",
+      "apiBaseURL": "https://api.openai.com",
+      "docsURL": "https://platform.openai.com/docs",
+      "models": [
+        {
+          "provider": "openai",
+          "id": "gpt-6-luna",
+          "displayName": "GPT-6 Luna",
+          "contextWindow": 828400,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 0.1,
+            "outputPerMTok": 0.5,
+            "cacheReadPerMTok": 0.01,
+            "cacheWritePerMTok": 0.125,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 0.2,
+              "outputPerMTok": 1.0,
+              "cacheReadPerMTok": 0.05,
+              "cacheWritePerMTok": 0.625
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": true,
+          "details": "Cheapest current model \u2014 ideal for iteration and tests.",
+          "releasedAt": "2026-10-15T00:00:00Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-5.6-luna",
+          "displayName": "GPT-5.6 Luna",
+          "contextWindow": 828400,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 0.2,
+            "outputPerMTok": 1.2,
+            "cacheReadPerMTok": 0.02,
+            "cacheWritePerMTok": 0.25,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 0.4,
+              "outputPerMTok": 2.4,
+              "cacheReadPerMTok": 0.1,
+              "cacheWritePerMTok": 1.25
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Cheap, capable, great structured-JSON reliability.",
+          "releasedAt": "2026-06-17T00:00:00Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-6.1-terra",
+          "displayName": "GPT-6.1 Terra",
+          "contextWindow": 475000,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 1.0,
+            "outputPerMTok": 5.0,
+            "cacheReadPerMTok": 0.05,
+            "cacheWritePerMTok": 1.25,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 2.0,
+              "outputPerMTok": 10.0,
+              "cacheReadPerMTok": 0.25,
+              "cacheWritePerMTok": 6.25
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Strong creative writer at a reasonable price.",
+          "releasedAt": "2026-10-28T00:00:00Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-5.6-terra",
+          "displayName": "GPT-5.6 Terra",
+          "contextWindow": 828400,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 2.0,
+            "outputPerMTok": 12.0,
+            "cacheReadPerMTok": 0.2,
+            "cacheWritePerMTok": 2.5,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 4.0,
+              "outputPerMTok": 24.0,
+              "cacheReadPerMTok": 1.0,
+              "cacheWritePerMTok": 12.5
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "High-quality Director with excellent typography sense.",
+          "releasedAt": "2026-06-17T00:00:00Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-5.6-sol",
+          "displayName": "GPT-5.6 Sol",
+          "contextWindow": 828400,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 4.0,
+            "outputPerMTok": 20.0,
+            "cacheReadPerMTok": 0.4,
+            "cacheWritePerMTok": 5.0,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 8.0,
+              "outputPerMTok": 40.0,
+              "cacheReadPerMTok": 2.0,
+              "cacheWritePerMTok": 25.0
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Premium reasoning model for demanding briefs.",
+          "releasedAt": "2026-06-17T00:00:00Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-6.1-sol",
+          "displayName": "GPT-6.1 Sol",
+          "contextWindow": 828400,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 2.0,
+            "outputPerMTok": 10.0,
+            "cacheReadPerMTok": 0.1,
+            "cacheWritePerMTok": 2.5,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 4.0,
+              "outputPerMTok": 20.0,
+              "cacheReadPerMTok": 0.5,
+              "cacheWritePerMTok": 12.5
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Flagship creative quality at mid-tier cost.",
+          "releasedAt": "2026-10-28T00:00:00Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-6-astra",
+          "displayName": "GPT-6 Astra",
+          "contextWindow": 828400,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 10.0,
+            "outputPerMTok": 50.0,
+            "cacheReadPerMTok": 1.0,
+            "cacheWritePerMTok": 12.5,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 20.0,
+              "outputPerMTok": 100.0,
+              "cacheReadPerMTok": 5.0,
+              "cacheWritePerMTok": 62.5
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Top-of-catalog quality. Expensive per generation.",
+          "releasedAt": "2026-09-20T00:00:00Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-5.4-mini",
+          "displayName": "GPT-5.4 mini",
+          "contextWindow": 400000,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 0.75,
+            "outputPerMTok": 4.5,
+            "cacheReadPerMTok": 0.075,
+            "cacheWritePerMTok": 0.94
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Cost-effective all-rounder.",
+          "releasedAt": "2026-03-17T00:00:00Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-5-mini",
+          "displayName": "GPT-5 mini",
+          "contextWindow": 400000,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 0.25,
+            "outputPerMTok": 2.0,
+            "cacheReadPerMTok": 0.025,
+            "cacheWritePerMTok": 0.31
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Older mini model. Prefer GPT-6 Luna.",
+          "releasedAt": "2025-08-07T00:00:00Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-5-nano",
+          "displayName": "GPT-5 nano",
+          "contextWindow": 400000,
+          "maxOutputTokens": 128000,
+          "pricing": {
+            "inputPerMTok": 0.05,
+            "outputPerMTok": 0.4,
+            "cacheReadPerMTok": 0.005,
+            "cacheWritePerMTok": 0.06
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": true,
+          "supportsVision": true,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Ultra-cheap. Use for smoke tests only.",
+          "releasedAt": "2025-08-07T00:00:00Z"
+        }
+      ]
+    }
+  ],
+  "deprecations": []
+}
