@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-18T15:37:58Z",
+  "generatedAt": "2026-11-24T17:42:58Z",
   "sourceURL": "https://motion.glass/catalog.json",
   "providers": [
     {
@@ -604,6 +604,110 @@
           "isRecommended": false,
           "details": "Added automatically from the provider model list.",
           "releasedAt": "2026-11-02T18:07:00Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-6-astra-healthcare",
+          "displayName": "GPT-6 Astra Healthcare",
+          "contextWindow": 128000,
+          "maxOutputTokens": 32000,
+          "pricing": {
+            "inputPerMTok": 10.0,
+            "outputPerMTok": 50.0,
+            "cacheReadPerMTok": 1.0,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 20.0,
+              "outputPerMTok": 75.0,
+              "cacheReadPerMTok": 2.0
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": false,
+          "supportsVision": false,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Added automatically from the provider model list.",
+          "releasedAt": "2026-10-16T19:34:52Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-6.1-sol-healthcare",
+          "displayName": "GPT-6.1 Sol Healthcare",
+          "contextWindow": 128000,
+          "maxOutputTokens": 32000,
+          "pricing": {
+            "inputPerMTok": 2.0,
+            "outputPerMTok": 10.0,
+            "cacheReadPerMTok": 0.1,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 4.0,
+              "outputPerMTok": 15.0,
+              "cacheReadPerMTok": 0.2
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": false,
+          "supportsVision": false,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Added automatically from the provider model list.",
+          "releasedAt": "2026-10-26T21:25:19Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-6.2-astra-healthcare",
+          "displayName": "GPT-6.2 Astra Healthcare",
+          "contextWindow": 128000,
+          "maxOutputTokens": 32000,
+          "pricing": {
+            "inputPerMTok": 8.0,
+            "outputPerMTok": 40.0,
+            "cacheReadPerMTok": 0.4,
+            "cacheWritePerMTok": 10.0,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 16.0,
+              "outputPerMTok": 60.0,
+              "cacheReadPerMTok": 0.8,
+              "cacheWritePerMTok": 20.0
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": false,
+          "supportsVision": false,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Added automatically from the provider model list.",
+          "releasedAt": "2026-10-31T07:00:49Z"
+        },
+        {
+          "provider": "openai",
+          "id": "gpt-6.2-sol-healthcare",
+          "displayName": "GPT-6.2 Sol Healthcare",
+          "contextWindow": 128000,
+          "maxOutputTokens": 32000,
+          "pricing": {
+            "inputPerMTok": 2.0,
+            "outputPerMTok": 10.0,
+            "cacheReadPerMTok": 0.1,
+            "cacheWritePerMTok": 2.5,
+            "longContext": {
+              "inputTokensAbove": 272000,
+              "inputPerMTok": 4.0,
+              "outputPerMTok": 15.0,
+              "cacheReadPerMTok": 0.2,
+              "cacheWritePerMTok": 5.0
+            }
+          },
+          "lifecycle": "active",
+          "supportsStructuredJSON": false,
+          "supportsVision": false,
+          "supportsStreaming": true,
+          "isRecommended": false,
+          "details": "Added automatically from the provider model list.",
+          "releasedAt": "2026-11-02T17:54:36Z"
         }
       ]
     }
